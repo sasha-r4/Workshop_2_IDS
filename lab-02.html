@@ -366,11 +366,11 @@ library(readxl)</code></pre>
 <div id="load-join-data-sets" class="section level2">
 <h2>Load &amp; join data sets</h2>
 <pre class="r"><code># Member 1 write code to load File 1 data here:
-
+data1 &lt;- read_csv(&quot;data/mismanaged-plastic-waste-per-capita.csv&quot;)
 
 
 # Member 2 write code to load File 2 data here:
-
+data2&lt;-read.csv2(&quot;data/per-capita-ocean-plastic-waste.txt&quot;)
 
 
 # Member 3 write code to load File 3 data here:
@@ -379,19 +379,33 @@ library(readxl)</code></pre>
 
 # Member 4 write code to load File 4 data here:</code></pre>
 <pre class="r"><code># Member 1 write code to create object &#39;plastic_data_all&#39;:
-
+plastic_data_all &lt;- data1
 
 
 # Member 2 write code to join your data to &#39;plastic_data_all&#39;:
 
-
+plastic_data_all &lt;- data2 %&gt;%
+  select(-name) %&gt;%
+  left_join(plastic_data_all, by = &quot;code&quot;)
 
 # Member 3 write code to join your data to &#39;plastic_data_all&#39;:
 
 
 
 # Member 4 write code to join your data to &#39;plastic_data_all&#39;:</code></pre>
-<pre class="r"><code># Member 1 adds code here to view the first 10 rows of &#39;plastic_data_all&#39;</code></pre>
+<pre class="r"><code># Member 1 adds code here to view the first 10 rows of &#39;plastic_data_all&#39;
+plastic_data_all %&gt;% head(n = 10)</code></pre>
+<pre><code>##    code mismanaged_plastic_ocean                name mismanaged_plastic
+## 1   ALB               0.54321416             Albania         24.2391531
+## 2   DZA               0.13411377             Algeria         17.7589947
+## 3   AGO               0.02702278              Angola          7.4452789
+## 4   ATG               0.02061856 Antigua and Barbuda          6.4639175
+## 5   ARG               0.09238293           Argentina         10.4019115
+## 6   AUS               0.00126969           Australia          0.2089434
+## 7   BHS               0.05141388             Bahamas          5.6863753
+## 8   BHR               0.00000000             Bahrain          0.6355881
+## 9   BGD               0.15112300          Bangladesh          6.2681084
+## 10  BRB               0.15679442            Barbados          3.0383275</code></pre>
 </div>
 <div id="exercises" class="section level2">
 <h2>Exercises</h2>
