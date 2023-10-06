@@ -77,7 +77,6 @@ plastic_data_all %>% head(n = 10)
 ### Ex 1.
 
 ```{r Ex1, message = FALSE}
-# Write your code here to answer exercise 1
 plastic_data_all %>% count(region)
 
 
@@ -88,7 +87,11 @@ plastic_data_all %>% count(region)
 ### Ex 2.
 
 ```{r Ex2, message = FALSE}
-# Write your code here to answer exercise 2
+plastic_data_all %>%
+  mutate(total_mismanaged_plastic = mismanaged_plastic*population) %>%
+  group_by(region) %>%
+  summarise(mean_plastic = mean(total_mismanaged_plastic))
+  
 
 
 
