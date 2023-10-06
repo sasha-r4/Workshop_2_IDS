@@ -1,6 +1,6 @@
 ---
 title: "Lab 02 - Global plastic waste"
-author: "IDS-Survivors: Sasha, Yining, User3 and User4"
+author: "IDS-Survivors: Sasha, Yining, Hanson and User4"
 date: "`r Sys.Date()`"
 output: html_document
 ---
